@@ -57,9 +57,9 @@ class Objeto(ObjetoBase): # Para leitura (resposta da API)
     class Config:
         from_attributes = True # Antigo orm_mode = True
 
-class ObjetoComSugestoes(BaseModel): # Resposta após análise da IA
+class ObjetoComSugestoes(BaseModel):
     sugestao_categoria: Optional[str] = None
-    sugestao_tags: Optional[List[str]] = None
-    objeto_parcial: Optional[ObjetoBase] = None # Dados já preenchidos pelo usuário ou IA
+    sugestao_tags: Optional[List[str]] = None # Mudei para List[str] para ser mais semântico
+    objeto_parcial: Optional[Objeto] = None # Alterado para Objeto completo
     # Em breve, adicionaremos o ID do objeto temporário ou imagem aqui
     # para o usuário confirmar e salvar completamente.
